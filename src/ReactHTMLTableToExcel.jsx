@@ -12,7 +12,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  id: 'button-download-as-xls',
+  id: 'button-download-as-xlsx',
   className: 'button-download',
   buttonText: 'Download',
 };
@@ -50,7 +50,7 @@ class ReactHTMLTableToExcel extends Component {
 
     const table = document.getElementById(this.props.table).outerHTML;
     const sheet = String(this.props.sheet);
-    const filename = `${String(this.props.filename)}.xls`;
+    const filename = `${String(this.props.filename)}.xlsx`;
 
     const uri = 'data:application/vnd.ms-excel;base64,';
     const template =
