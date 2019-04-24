@@ -74,7 +74,27 @@ var ReactHTMLTableToExcel = function (_Component) {
       var filename = String(this.props.filename) + '.xlsx';
 
       var uri = 'data:application/vnd.ms-excel;base64,';
-      var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-mic' + 'rosoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta cha' + 'rset="UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:Exce' + 'lWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/>' + '</x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></' + 'xml><![endif]--></head><body>{table}</body></html>';
+      const template = 
+        `<html xmlns:o="urn:schemas-microsoft-com:office:office"
+            xmlns:x="urn:schemas-microsoft-com:office:excel"
+            xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+        <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+        <meta name=ProgId content=Excel.Sheet>
+        <meta name=Generator content="Microsoft Excel 11">
+        <body>
+        <style>
+        br{mso-data-placement:same-cell;}
+        td{font-size:9pt}
+        .str_css{mso-number-format:"\@";}
+        </style>{table}</body></html>`;
+      // var template = 
+      // '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-mic' + 
+      // 'rosoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><meta cha' + 
+      // 'rset="UTF-8"><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:Exce' + 
+      // 'lWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/>' + 
+      // '</x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></' + 
+      // 'xml><![endif]--></head><body>{table}</body></html>';
 
       var context = {
         worksheet: sheet || 'Worksheet',
